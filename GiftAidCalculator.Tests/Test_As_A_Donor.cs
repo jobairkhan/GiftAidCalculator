@@ -52,7 +52,7 @@ namespace GiftAidCalculator.Tests
 
 
         [Test]
-        public static void GiftAidAmount_VerifyInjectedTaxRateStoreIsCalled_Expect_True([Values(10, 100)]decimal donationAmount)
+        public static void GiftAidAmount_VerifyInjectedTaxRateStoreIsCalled_Expect_AtLeastOnce([Values(10, 100)]decimal donationAmount)
         {
             decimal arbitraryTaxRate = 20m;
 
@@ -61,7 +61,7 @@ namespace GiftAidCalculator.Tests
             IGiftAidCalculatorService calc = new GiftAidCalculatorService(spyTaStore.Object);
             decimal giftAidAmount = calc.GiftAidAmount(donationAmount);
 
-            spyTaStore.Verify(m=> m.Get());
+            spyTaStore.Verify(m=> m.Get(), Times.AtLeastOnce());
         }
 
         private static decimal expectedGiftAidAmount(decimal donationAmount, decimal currentTaxRate)
