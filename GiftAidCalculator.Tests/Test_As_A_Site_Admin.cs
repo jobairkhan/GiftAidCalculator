@@ -8,7 +8,7 @@ namespace GiftAidCalculator.Tests
     public class Test_As_A_Site_Admin
     {
         [Test]
-        public static void SetTaxRate_To10ByAdmin_Expect_TaxRateChangedTo25()
+        public static void SetTaxRate_To10ByAdmin_Expect_TaxRateChangedTo10()
         {
             decimal input = 10m;
             
