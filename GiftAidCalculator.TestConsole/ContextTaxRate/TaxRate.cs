@@ -11,7 +11,7 @@
 
         public override string ToString()
         {
-            return "Tax Rate: " + this.Value.ToString();
+            return $"Tax Rate: {Value}";
         }
     }
 }
