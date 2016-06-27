@@ -48,7 +48,7 @@ namespace GiftAidCalculator.Tests
 
 
         [Test]
-        public static void GiftAidAmount_DonatingForSwimmingEvent_Except_onlyGiftAidAmount()
+        public static void GiftAidAmount_DonatingForNoSupplementEvent_Except_onlyGiftAidAmount()
         {
             decimal donationAmount = 100m;
 
