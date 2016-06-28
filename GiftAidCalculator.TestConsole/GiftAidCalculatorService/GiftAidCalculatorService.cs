@@ -48,6 +48,9 @@ namespace GiftAidCalculator
 
             private static decimal getRatio(decimal percentage)
             {
+                if (percentage >= 100m)
+                    return percentage;
+
                 return (percentage / (100m - percentage));
             }
 
