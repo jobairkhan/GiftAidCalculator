@@ -68,5 +68,20 @@ namespace GiftAidCalculator.Tests
         {
             return Math.Round(donationAmount * (currentTaxRate / (100m - currentTaxRate)), 2);
         }
+        
+        [Test]
+        public static void GifAidAmount_TaxRate100Donate100_Expect_10000AsGiftAid()
+        {
+            decimal gaTaxRate = 100m;
+            decimal donationAmount = 100m;
+            decimal expected = 10000m;
+            var taxRate = new Mock<ITaxRateStore>();
+            taxRate.Setup(m => m.Get()).Returns(gaTaxRate);
+            IGiftAidCalculatorService calc = new GiftAidCalculatorService(taxRate.Object);
+
+            decimal giftAidAmount = calc.GiftAidAmount(donationAmount);
+
+            Assert.AreEqual(expected, giftAidAmount);
+        }
     }
 }
